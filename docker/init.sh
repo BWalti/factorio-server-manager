@@ -13,6 +13,11 @@ if [ ! -f /security/server.key ]; then
 		-out /security/server.crt
 fi
 
+curl -L -k https://www.factorio.com/get-download/$FACTORIO_VERSION/headless/linux64 -o /tmp/factorio_$FACTORIO_VERSION.tar.xz
+tar Jxf /tmp/factorio_$FACTORIO_VERSION.tar.xz
+rm /tmp/factorio_$FACTORIO_VERSION.tar.xz
+    
+	
 nohup nginx &
 cd /opt/factorio-server-manager
 ./factorio-server-manager -dir '/opt/factorio'
